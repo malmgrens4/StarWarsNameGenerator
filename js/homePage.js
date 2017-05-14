@@ -4,32 +4,51 @@ function generateNames() {
     $("#submit-values").click(function () {
         var firstName = $("#first-name").val();
         var lastName = $("#last-name").val();
-        alert(firstName + lastName);
+       
+
         var sumName = firstName + lastName;
+       
+
         var nameSize;
+       
         if (sumName.length > 16) {
+ 
             nameSize = 3;
-        }
-        else {
+        } else {
             nameSize = 2;
         }
-        alert(nameSize);
-        
+
         console.log("button-clicked");
-        
         $(".search-content").toggle(3000);
-        var finalName = getName(sumName.hash, nameSize);
         
-        alert(finalName);
-        
+       
+        var finalName = getName(nameSize, hashName(sumName));
+        displayName(finalName);
+
     });
+
+}
+
+
+function hashName( name ) {
+    var hash=0;
+    for(var i = 0; i < name.length - 1; i++){
+
+        hash += name.charCodeAt(i) * 3;
+    }
+    return hash;
+    
+}
+function displayName( name ) {
+    $("#name-display").toggle(1000);
+    
+    $("#final-name").text(name);
+    
     
 }
 
-function displayNames() {}
-
 function getName(nameSize, nameHash) {
-    console.log("getName!");
+
     var starWarsNames = [
   '4-LOM', 'Aayla Secura', 'Admiral Ackbar'
   , 'Admiral Thrawn'
@@ -123,41 +142,41 @@ function getName(nameSize, nameHash) {
   , 'Zayne Carrick'
   , 'Zuckuss'
 ];
-    
-    
+
+
     var firstNames = [];
     var secondNames = [];
     var thirdNames = [];
-    var finalName= " ";
-    
+
+    var finalName = " ";
+
     for (var i = 0; i < starWarsNames.length; i++) {
-        console.log("we in the loops!");
+     
         var name = starWarsNames[i];
         var splitName = name.split(" ");
-        
+
         firstNames.push(splitName[0]);
-        
+
         if (splitName.length > 1) {
             secondNames.push(splitName[1]);
-            
+
         }
         if (splitName.length > 2) {
             thirdNames.push(splitName[2]);
         }
     }
-    
-    
-   
-    alert(nameSize);
-    if (nameSize == 2) {
-        alert("nameSize is 2");
-        finalName = finalName.concat(firstNames[(nameHash % firstNames.length)], secondNames[(nameHash % secondNames.length)]);
+
+    if (nameSize >= 2) {
+      
+        finalName += firstNames[(nameHash % firstNames.length)] + " " + secondNames[(nameHash % secondNames.length)];
+     
     }
-    
-    else if (nameSize == 3) {
-        return (finalName.concat(thirdNames[(nameHash % starWarsNames.length)]));
+
+
+    if (nameSize == 3) {
+        finalName += " " + thirdNames[(nameHash % thirdNames.length)];
     }
-    
+
     return finalName;
-    
+
 }
