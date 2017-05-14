@@ -1,19 +1,37 @@
 .main-content{
+    color: #333;
     margin-top: 300px;
+    background-image: url("/images/")
 }
-.navbar{
-    display: block;
+
+.center-text{
+    margin: 0 auto;
+    text-align: center;
+    color: #333;
+
 }
 button{
     margin-top: 20px;
     border:none;
+    text-align: center;
+
 }
 #name-display{
-    background-color: black;
     color: whitesmoke;
     display: none;
-    margin-top:400px;
+    margin-top:350px;
+    
 }
 #final-name{
+    text-align: center;
+    font-size: 8em;
+}
+
+.bottom{
+    display: none;
+    color: white;
+    font-size: .6em;
     
+    margin: 0;
+    text-align: center;
 }

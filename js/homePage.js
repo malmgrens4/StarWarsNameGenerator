@@ -33,7 +33,6 @@ function generateNames() {
 function hashName( name ) {
     var hash=0;
     for(var i = 0; i < name.length - 1; i++){
-
         hash += name.charCodeAt(i) * 3;
     }
     return hash;
@@ -41,11 +40,19 @@ function hashName( name ) {
 }
 function displayName( name ) {
     $("#name-display").toggle(1000);
-    
+    $("#form-header").toggle(1000);
     $("#final-name").text(name);
     
     
+    $("body").css("background-color", "black");
+    $("body").css("background-image", "url(/images/stars.png)");
+    
+    
+    $(".bottom").delay(4000).toggle(1000);
+    
+    
 }
+
 
 function getName(nameSize, nameHash) {
 
@@ -100,7 +107,7 @@ function getName(nameSize, nameHash) {
   , 'Jango Fett'
   , 'Jarael'
   , 'Jerec'
-  , 'Joruus CBaoth'
+  , 'Joruus C Baoth'
   , 'Ki-Adi-Mundi'
   , 'Kir Kanos'
   , 'Kit Fisto'
