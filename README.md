@@ -1,2 +1,2 @@
-# SearchGov
-Learn about other countries government's with this web application.
+# SWNameGenerator 
+Generate a Starwars name based off of yours!
